@@ -1,320 +1,116 @@
-{
-  "nbformat": 4,
-  "nbformat_minor": 0,
-  "metadata": {
-    "colab": {
-      "provenance": [],
-      "authorship_tag": "ABX9TyOXXttHWyTsCQqcoeAsG3+o",
-      "include_colab_link": true
-    },
-    "kernelspec": {
-      "name": "python3",
-      "display_name": "Python 3"
-    },
-    "language_info": {
-      "name": "python"
-    }
-  },
-  "cells": [
-    {
-      "cell_type": "markdown",
-      "metadata": {
-        "id": "view-in-github",
-        "colab_type": "text"
-      },
-      "source": [
-        "<a href=\"https://colab.research.google.com/github/mecodespark/tus-doc-request-generator/blob/main/app.py\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
-      ]
-    },
-    {
-      "cell_type": "code",
-      "execution_count": 4,
-      "metadata": {
-        "colab": {
-          "base_uri": "https://localhost:8080/"
-        },
-        "id": "n6xMFR7NqDPM",
-        "outputId": "11bfb9b4-b663-4f77-c714-f661ecfe9e34"
-      },
-      "outputs": [
-        {
-          "output_type": "stream",
-          "name": "stderr",
-          "text": [
-            "2026-01-19 14:31:13.855 WARNING streamlit.runtime.scriptrunner_utils.script_run_context: Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
-            "2026-01-19 14:31:13.859 WARNING streamlit.runtime.scriptrunner_utils.script_run_context: Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
-            "2026-01-19 14:31:14.345 \n",
-            "  \u001b[33m\u001b[1mWarning:\u001b[0m to view this Streamlit app on a browser, run it with the following\n",
-            "  command:\n",
-            "\n",
-            "    streamlit run /usr/local/lib/python3.12/dist-packages/colab_kernel_launcher.py [ARGUMENTS]\n",
-            "2026-01-19 14:31:14.348 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
-            "2026-01-19 14:31:14.349 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
-            "2026-01-19 14:31:14.351 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
-            "2026-01-19 14:31:14.353 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
-            "2026-01-19 14:31:14.354 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
-            "2026-01-19 14:31:14.356 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
-            "2026-01-19 14:31:14.358 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
-            "2026-01-19 14:31:14.359 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
-            "2026-01-19 14:31:14.361 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
-            "2026-01-19 14:31:14.362 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
-            "2026-01-19 14:31:14.364 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
-            "2026-01-19 14:31:14.365 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
-            "2026-01-19 14:31:14.367 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
-            "2026-01-19 14:31:14.369 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
-            "2026-01-19 14:31:14.371 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
-            "2026-01-19 14:31:14.374 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
-            "2026-01-19 14:31:14.377 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
-            "2026-01-19 14:31:14.381 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
-            "2026-01-19 14:31:14.382 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
-            "2026-01-19 14:31:14.385 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
-            "2026-01-19 14:31:14.389 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
-            "2026-01-19 14:31:14.394 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
-            "2026-01-19 14:31:14.395 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
-            "2026-01-19 14:31:14.400 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
-            "2026-01-19 14:31:14.402 Session state does not function when running a script without `streamlit run`\n",
-            "2026-01-19 14:31:14.404 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
-            "2026-01-19 14:31:14.405 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
-            "2026-01-19 14:31:14.406 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
-            "2026-01-19 14:31:14.407 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
-            "2026-01-19 14:31:14.410 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
-            "2026-01-19 14:31:14.413 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
-            "2026-01-19 14:31:14.416 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
-            "2026-01-19 14:31:14.419 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
-            "2026-01-19 14:31:14.422 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
-            "2026-01-19 14:31:14.426 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
-            "2026-01-19 14:31:14.430 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
-            "2026-01-19 14:31:14.431 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
-            "2026-01-19 14:31:14.435 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
-            "2026-01-19 14:31:14.436 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
-            "2026-01-19 14:31:14.439 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
-            "2026-01-19 14:31:14.440 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
-            "2026-01-19 14:31:14.441 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
-            "2026-01-19 14:31:14.445 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
-            "2026-01-19 14:31:14.448 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
-            "2026-01-19 14:31:14.450 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
-            "2026-01-19 14:31:14.453 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
-            "2026-01-19 14:31:14.454 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
-            "2026-01-19 14:31:14.457 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
-            "2026-01-19 14:31:14.460 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
-            "2026-01-19 14:31:14.464 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
-            "2026-01-19 14:31:14.470 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
-            "2026-01-19 14:31:14.475 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
-            "2026-01-19 14:31:14.478 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
-            "2026-01-19 14:31:14.485 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
-            "2026-01-19 14:31:14.486 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
-            "2026-01-19 14:31:14.489 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
-            "2026-01-19 14:31:14.490 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
-            "2026-01-19 14:31:14.492 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
-            "2026-01-19 14:31:14.495 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
-            "2026-01-19 14:31:14.497 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n"
-          ]
-        },
-        {
-          "output_type": "execute_result",
-          "data": {
-            "text/plain": [
-              "DeltaGenerator(_form_data=FormData(form_id='generator'))"
-            ]
-          },
-          "metadata": {},
-          "execution_count": 4
-        }
-      ],
-      "source": [
-        "import streamlit as st\n",
-        "from datetime import date, timedelta\n",
-        "\n",
-        "st.set_page_config(page_title=\"TUS Document Request Generator\", layout=\"centered\")\n",
-        "\n",
-        "# ---------------- GDPR banner ----------------\n",
-        "st.warning(\n",
-        "    \"🔒 GDPR Notice: This tool does NOT store, log, or transmit any personal data. \"\n",
-        "    \"All inputs are processed temporarily in memory and disappear when the page is refreshed. \"\n",
-        "    \"Only enter minimal applicant information (forename and programme).\"\n",
-        ")\n",
-        "\n",
-        "consent = st.checkbox(\n",
-        "    \"I confirm I will only enter minimal applicant data and understand no data is stored.\"\n",
-        ")\n",
-        "if not consent:\n",
-        "    st.stop()\n",
-        "\n",
-        "# ---------------- Config ----------------\n",
-        "DOCS = [\n",
-        "    \"Individual semester wise marksheets\",\n",
-        "    \"Consolidated marksheets\",\n",
-        "    \"Statement of Purpose (SOP)\",\n",
-        "    \"Letter of Recommendation (LOR) - Professional Reference\",\n",
-        "    \"Work Experience Letter (WEL)\",\n",
-        "    \"Letter of Degree Completion / Provisional Degree Certificate\",\n",
-        "    \"Letter of Recommendation (LOR) - Academic Reference\",\n",
-        "    \"Official grading scale from your awarding institution\",\n",
-        "    \"Backlog Certificate (issued by your awarding institution)\",\n",
-        "]\n",
-        "\n",
-        "st.title(\"Document Request Email Generator\")\n",
-        "st.caption(\"Generate a standardised message to copy-paste into Prospect.\")\n",
-        "\n",
-        "# ---------------- Form ----------------\n",
-        "with st.form(\"generator\"):\n",
-        "    col1, col2 = st.columns(2)\n",
-        "\n",
-        "    with col1:\n",
-        "        forename = st.text_input(\n",
-        "            \"Student Forename (free text)\",\n",
-        "            placeholder=\"e.g., Rahul\",\n",
-        "        )\n",
-        "    with col2:\n",
-        "        programme = st.text_input(\n",
-        "            \"Programme Name (free text)\",\n",
-        "            placeholder=\"e.g., MSc Data Analytics\",\n",
-        "        )\n",
-        "\n",
-        "    deadline_mode = st.selectbox(\n",
-        "        \"Deadline\",\n",
-        "        [\"In 7 days\", \"In 14 days\", \"In 21 days\", \"Pick a date\"],\n",
-        "        index=1\n",
-        "    )\n",
-        "\n",
-        "    if deadline_mode == \"Pick a date\":\n",
-        "        deadline = st.date_input(\"Deadline Date\", value=date.today() + timedelta(days=14))\n",
-        "    else:\n",
-        "        days = int(deadline_mode.split()[1])\n",
-        "        deadline = date.today() + timedelta(days=days)\n",
-        "\n",
-        "    st.markdown(\"### Documents (tick to include)\")\n",
-        "    selected_docs = st.multiselect(\"Required Documents\", DOCS)\n",
-        "\n",
-        "    submitted = st.form_submit_button(\"Generate Email\")\n",
-        "\n",
-        "# ---------------- Output ----------------\n",
-        "if submitted:\n",
-        "    if not forename.strip() or not programme.strip():\n",
-        "        st.error(\"Please enter Student Forename and Programme Name.\")\n",
-        "        st.stop()\n",
-        "\n",
-        "    if not selected_docs:\n",
-        "        st.warning(\"Please select at least one document.\")\n",
-        "        st.stop()\n",
-        "\n",
-        "    doc_list = \"\\n\".join([f\"• {d}\" for d in selected_docs])\n",
-        "\n",
-        "    subject = f\"Additional Documents Required – {programme.strip()}\"\n",
-        "\n",
-        "    body = f\"\"\"Hello {forename.strip()},\n",
-        "\n",
-        "Thank you for your application to {programme.strip()} at Technological University of the Shannon (TUS).\n",
-        "\n",
-        "To proceed with the assessment of your application, we kindly request you to upload the following document(s):\n",
-        "\n",
-        "Required Documents:\n",
-        "{doc_list}\n",
-        "\n",
-        "Please ensure that all documents are clear, complete, and issued by the relevant awarding or official authority.\n",
-        "\n",
-        "Important Guidelines:\n",
-        "• Upload all documents in PDF format only.\n",
-        "• Each document should be clearly readable and not password protected.\n",
-        "• If a document is not yet available, please upload an official provisional letter or provide an expected availability date.\n",
-        "• Where applicable, documents must be issued on official institutional letterhead and include signature/stamp.\n",
-        "\n",
-        "Deadline:\n",
-        "Please upload the requested documents by {deadline.strftime(\"%d %B %Y\")} to avoid any delay in the processing of your application.\n",
-        "\n",
-        "If you experience any difficulty uploading the documents or have any questions, simply reply to this message and our team will be happy to assist you.\n",
-        "\n",
-        "Kind regards,\n",
-        "Admissions Team\n",
-        "Technological University of the Shannon\n",
-        "\"\"\"\n",
-        "\n",
-        "    st.subheader(\"Subject (copy into Prospect)\")\n",
-        "    st.code(subject)\n",
-        "\n",
-        "    st.subheader(\"Email Body (copy into Prospect)\")\n",
-        "    st.text_area(\"\", value=body, height=420)\n",
-        "\n",
-        "st.caption(\n",
-        "    \"Data Protection: This tool processes inputs in-memory only and does not retain or transmit personal information.\"\n",
-        ")\n"
-      ]
-    },
-    {
-      "cell_type": "code",
-      "source": [
-        "pip install streamlit"
-      ],
-      "metadata": {
-        "colab": {
-          "base_uri": "https://localhost:8080/"
-        },
-        "id": "cRIb-JtgqE6D",
-        "outputId": "02f2df06-4ee9-490f-bf62-4262c96982bf"
-      },
-      "execution_count": 3,
-      "outputs": [
-        {
-          "output_type": "stream",
-          "name": "stdout",
-          "text": [
-            "Collecting streamlit\n",
-            "  Downloading streamlit-1.53.0-py3-none-any.whl.metadata (10 kB)\n",
-            "Requirement already satisfied: altair!=5.4.0,!=5.4.1,<7,>=4.0 in /usr/local/lib/python3.12/dist-packages (from streamlit) (5.5.0)\n",
-            "Requirement already satisfied: blinker<2,>=1.5.0 in /usr/local/lib/python3.12/dist-packages (from streamlit) (1.9.0)\n",
-            "Requirement already satisfied: cachetools<7,>=5.5 in /usr/local/lib/python3.12/dist-packages (from streamlit) (6.2.4)\n",
-            "Requirement already satisfied: click<9,>=7.0 in /usr/local/lib/python3.12/dist-packages (from streamlit) (8.3.1)\n",
-            "Requirement already satisfied: numpy<3,>=1.23 in /usr/local/lib/python3.12/dist-packages (from streamlit) (2.0.2)\n",
-            "Requirement already satisfied: packaging>=20 in /usr/local/lib/python3.12/dist-packages (from streamlit) (25.0)\n",
-            "Requirement already satisfied: pandas<3,>=1.4.0 in /usr/local/lib/python3.12/dist-packages (from streamlit) (2.2.2)\n",
-            "Requirement already satisfied: pillow<13,>=7.1.0 in /usr/local/lib/python3.12/dist-packages (from streamlit) (11.3.0)\n",
-            "Requirement already satisfied: protobuf<7,>=3.20 in /usr/local/lib/python3.12/dist-packages (from streamlit) (5.29.5)\n",
-            "Requirement already satisfied: pyarrow>=7.0 in /usr/local/lib/python3.12/dist-packages (from streamlit) (18.1.0)\n",
-            "Requirement already satisfied: requests<3,>=2.27 in /usr/local/lib/python3.12/dist-packages (from streamlit) (2.32.4)\n",
-            "Requirement already satisfied: tenacity<10,>=8.1.0 in /usr/local/lib/python3.12/dist-packages (from streamlit) (9.1.2)\n",
-            "Requirement already satisfied: toml<2,>=0.10.1 in /usr/local/lib/python3.12/dist-packages (from streamlit) (0.10.2)\n",
-            "Requirement already satisfied: typing-extensions<5,>=4.10.0 in /usr/local/lib/python3.12/dist-packages (from streamlit) (4.15.0)\n",
-            "Requirement already satisfied: watchdog<7,>=2.1.5 in /usr/local/lib/python3.12/dist-packages (from streamlit) (6.0.0)\n",
-            "Requirement already satisfied: gitpython!=3.1.19,<4,>=3.0.7 in /usr/local/lib/python3.12/dist-packages (from streamlit) (3.1.46)\n",
-            "Collecting pydeck<1,>=0.8.0b4 (from streamlit)\n",
-            "  Downloading pydeck-0.9.1-py2.py3-none-any.whl.metadata (4.1 kB)\n",
-            "Requirement already satisfied: tornado!=6.5.0,<7,>=6.0.3 in /usr/local/lib/python3.12/dist-packages (from streamlit) (6.5.1)\n",
-            "Requirement already satisfied: jinja2 in /usr/local/lib/python3.12/dist-packages (from altair!=5.4.0,!=5.4.1,<7,>=4.0->streamlit) (3.1.6)\n",
-            "Requirement already satisfied: jsonschema>=3.0 in /usr/local/lib/python3.12/dist-packages (from altair!=5.4.0,!=5.4.1,<7,>=4.0->streamlit) (4.26.0)\n",
-            "Requirement already satisfied: narwhals>=1.14.2 in /usr/local/lib/python3.12/dist-packages (from altair!=5.4.0,!=5.4.1,<7,>=4.0->streamlit) (2.15.0)\n",
-            "Requirement already satisfied: gitdb<5,>=4.0.1 in /usr/local/lib/python3.12/dist-packages (from gitpython!=3.1.19,<4,>=3.0.7->streamlit) (4.0.12)\n",
-            "Requirement already satisfied: python-dateutil>=2.8.2 in /usr/local/lib/python3.12/dist-packages (from pandas<3,>=1.4.0->streamlit) (2.9.0.post0)\n",
-            "Requirement already satisfied: pytz>=2020.1 in /usr/local/lib/python3.12/dist-packages (from pandas<3,>=1.4.0->streamlit) (2025.2)\n",
-            "Requirement already satisfied: tzdata>=2022.7 in /usr/local/lib/python3.12/dist-packages (from pandas<3,>=1.4.0->streamlit) (2025.3)\n",
-            "Requirement already satisfied: charset_normalizer<4,>=2 in /usr/local/lib/python3.12/dist-packages (from requests<3,>=2.27->streamlit) (3.4.4)\n",
-            "Requirement already satisfied: idna<4,>=2.5 in /usr/local/lib/python3.12/dist-packages (from requests<3,>=2.27->streamlit) (3.11)\n",
-            "Requirement already satisfied: urllib3<3,>=1.21.1 in /usr/local/lib/python3.12/dist-packages (from requests<3,>=2.27->streamlit) (2.5.0)\n",
-            "Requirement already satisfied: certifi>=2017.4.17 in /usr/local/lib/python3.12/dist-packages (from requests<3,>=2.27->streamlit) (2026.1.4)\n",
-            "Requirement already satisfied: smmap<6,>=3.0.1 in /usr/local/lib/python3.12/dist-packages (from gitdb<5,>=4.0.1->gitpython!=3.1.19,<4,>=3.0.7->streamlit) (5.0.2)\n",
-            "Requirement already satisfied: MarkupSafe>=2.0 in /usr/local/lib/python3.12/dist-packages (from jinja2->altair!=5.4.0,!=5.4.1,<7,>=4.0->streamlit) (3.0.3)\n",
-            "Requirement already satisfied: attrs>=22.2.0 in /usr/local/lib/python3.12/dist-packages (from jsonschema>=3.0->altair!=5.4.0,!=5.4.1,<7,>=4.0->streamlit) (25.4.0)\n",
-            "Requirement already satisfied: jsonschema-specifications>=2023.03.6 in /usr/local/lib/python3.12/dist-packages (from jsonschema>=3.0->altair!=5.4.0,!=5.4.1,<7,>=4.0->streamlit) (2025.9.1)\n",
-            "Requirement already satisfied: referencing>=0.28.4 in /usr/local/lib/python3.12/dist-packages (from jsonschema>=3.0->altair!=5.4.0,!=5.4.1,<7,>=4.0->streamlit) (0.37.0)\n",
-            "Requirement already satisfied: rpds-py>=0.25.0 in /usr/local/lib/python3.12/dist-packages (from jsonschema>=3.0->altair!=5.4.0,!=5.4.1,<7,>=4.0->streamlit) (0.30.0)\n",
-            "Requirement already satisfied: six>=1.5 in /usr/local/lib/python3.12/dist-packages (from python-dateutil>=2.8.2->pandas<3,>=1.4.0->streamlit) (1.17.0)\n",
-            "Downloading streamlit-1.53.0-py3-none-any.whl (9.1 MB)\n",
-            "\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m9.1/9.1 MB\u001b[0m \u001b[31m55.4 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\n",
-            "\u001b[?25hDownloading pydeck-0.9.1-py2.py3-none-any.whl (6.9 MB)\n",
-            "\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m6.9/6.9 MB\u001b[0m \u001b[31m88.1 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\n",
-            "\u001b[?25hInstalling collected packages: pydeck, streamlit\n",
-            "Successfully installed pydeck-0.9.1 streamlit-1.53.0\n"
-          ]
-        }
-      ]
-    },
-    {
-      "cell_type": "code",
-      "source": [],
-      "metadata": {
-        "id": "JWMGK4uGqnpB"
-      },
-      "execution_count": null,
-      "outputs": []
-    }
-  ]
-}
+import streamlit as st
+from datetime import date, timedelta
+
+st.set_page_config(page_title="TUS Document Request Generator", layout="centered")
+
+# ---------------- GDPR banner ----------------
+st.warning(
+    "🔒 GDPR Notice: This tool does NOT store, log, or transmit any personal data. "
+    "All inputs are processed temporarily in memory and disappear when the page is refreshed. "
+    "Only enter minimal applicant information (forename and programme)."
+)
+
+consent = st.checkbox(
+    "I confirm I will only enter minimal applicant data and understand no data is stored."
+)
+if not consent:
+    st.stop()
+
+# ---------------- Config ----------------
+DOCS = [
+    "Individual semester wise marksheets",
+    "Consolidated marksheets",
+    "Statement of Purpose (SOP)",
+    "Letter of Recommendation (LOR) - Professional Reference",
+    "Work Experience Letter (WEL)",
+    "Letter of Degree Completion / Provisional Degree Certificate",
+    "Letter of Recommendation (LOR) - Academic Reference",
+    "Official grading scale from your awarding institution",
+    "Backlog Certificate (issued by your awarding institution)",
+]
+
+st.title("Document Request Email Generator")
+st.caption("Generate a standardised message to copy-paste into Prospect.")
+
+# ---------------- Form ----------------
+with st.form("generator"):
+    col1, col2 = st.columns(2)
+
+    with col1:
+        forename = st.text_input(
+            "Student Forename (free text)",
+            placeholder="e.g., Rahul",
+        )
+    with col2:
+        programme = st.text_input(
+            "Programme Name (free text)",
+            placeholder="e.g., MSc Data Analytics",
+        )
+
+    deadline_mode = st.selectbox(
+        "Deadline",
+        ["In 7 days", "In 14 days", "In 21 days", "Pick a date"],
+        index=1
+    )
+
+    if deadline_mode == "Pick a date":
+        deadline = st.date_input("Deadline Date", value=date.today() + timedelta(days=14))
+    else:
+        days = int(deadline_mode.split()[1])
+        deadline = date.today() + timedelta(days=days)
+
+    st.markdown("### Documents (tick to include)")
+    selected_docs = st.multiselect("Required Documents", DOCS)
+
+    submitted = st.form_submit_button("Generate Email")
+
+# ---------------- Output ----------------
+if submitted:
+    if not forename.strip() or not programme.strip():
+        st.error("Please enter Student Forename and Programme Name.")
+        st.stop()
+
+    if not selected_docs:
+        st.warning("Please select at least one document.")
+        st.stop()
+
+    doc_list = "\n".join([f"• {d}" for d in selected_docs])
+
+    subject = f"Additional Documents Required – {programme.strip()}"
+
+    body = f"""Hello {forename.strip()},
+
+Thank you for your application to {programme.strip()} at Technological University of the Shannon (TUS).
+
+To proceed with the assessment of your application, we kindly request you to upload the following document(s):
+
+Required Documents:
+{doc_list}
+
+Please ensure that all documents are clear, complete, and issued by the relevant awarding or official authority.
+
+Important Guidelines:
+• Upload all documents in PDF format only.
+• Each document should be clearly readable and not password protected.
+• If a document is not yet available, please upload an official provisional letter or provide an expected availability date.
+• Where applicable, documents must be issued on official institutional letterhead and include signature/stamp.
+
+Deadline:
+Please upload the requested documents by {deadline.strftime("%d %B %Y")} to avoid any delay in the processing of your application.
+
+If you experience any difficulty uploading the documents or have any questions, simply reply to this message and our team will be happy to assist you.
+
+Kind regards,
+Admissions Team
+Technological University of the Shannon
+"""
+
+    st.subheader("Subject (copy into Prospect)")
+    st.code(subject)
+
+    st.subheader("Email Body (copy into Prospect)")
+    st.text_area("", value=body, height=420)
+
+st.caption(
+    "Data Protection: This tool processes inputs in-memory only and does not retain or transmit personal information."
+)
