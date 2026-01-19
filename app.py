@@ -27,7 +27,7 @@ DOCS = [
     "Letter of Recommendation (LOR) - Academic Reference",
     "Official grading scale from your awarding institution",
     "Backlog Certificate (issued by your awarding institution)",
-    "Submission of your portfolio (if any)
+    "Submission of your portfolio (if any)",
 ]
 
 st.title("Document Request Email Generator")
