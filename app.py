@@ -110,7 +110,7 @@ Technological University of the Shannon
 
     st.subheader("Email Body (copy into Prospect)")
     st.text_area("", value=body, height=420)
-
+    st.mardown(body)
 st.caption(
     "Data Protection: This tool processes inputs in-memory only and does not retain or transmit personal information."
 )
