@@ -77,7 +77,7 @@ if submitted:
 
     doc_list = "\n".join([f"• {d}" for d in selected_docs])
 
-    subject = f"Additional Documents Required – {programme.strip()}"
+    subject = f"[IMP] Additional Documents Required – {programme.strip()} @ TUS"
 
     body = f"""Hello {forename.strip()},
 
