@@ -96,7 +96,7 @@ Important Guidelines:
 • If a document is not yet available, please upload an official provisional letter or provide an expected availability date.
 • Where applicable, documents must be issued on official institutional letterhead and include signature/stamp.
 
-We also kindly request that you submit the required documents, or update us on your progress toward uploading them, by **{deadline.strftime("%d %B %Y")}**. This allows us to support you appropriately, especially if you are facing any delays or challenges. Please feel free to keep us informed; we are here to help!
+We also kindly request that you submit the required documents, or update us on your progress toward uploading them, by {deadline.strftime("%d %B %Y")}. This allows us to support you appropriately, especially if you are facing any delays or challenges. Please feel free to keep us informed; we are here to help!
 
 If you experience any difficulty uploading the documents or have any questions, simply reply to this message and our team will be happy to assist you.
 
@@ -110,7 +110,6 @@ Technological University of the Shannon
 
     st.subheader("Email Body (copy into Prospect)")
     st.text_area("", value=body, height=420)
-    st.mardown(body)
 st.caption(
     "Data Protection: This tool processes inputs in-memory only and does not retain or transmit personal information."
 )
