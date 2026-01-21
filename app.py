@@ -63,19 +63,6 @@ with st.form("generator"):
     st.markdown("### Documents (tick to include)")
     selected_docs = st.multiselect("Required Documents", DOCS)
 
-    st.markdown("### Optional Follow-Up Emails")
-    enable_followups = st.checkbox("Include follow-up email templates")
-
-    followup_1_selected = False
-    followup_2_selected = False
-
-    if enable_followups:
-        col_f1, col_f2 = st.columns(2)
-        with col_f1:
-            followup_1_selected = st.checkbox("Follow-Up Email 1 (Gentle Reminder)")
-        with col_f2:
-            followup_2_selected = st.checkbox("Follow-Up Email 2 (Final Check-In)")
-
     submitted = st.form_submit_button("Generate Email")
 
 # ---------------- Output ----------------
@@ -109,9 +96,7 @@ Important Guidelines:
 • If a document is not yet available, please upload an official provisional letter or provide an expected availability date.
 • Where applicable, documents must be issued on official institutional letterhead and include signature/stamp.
 
-We also kindly request that you submit the required documents, or update us on your progress toward uploading them, by {deadline.strftime("%d %B %Y")}. This allows us to support you appropriately, especially if you are facing any delays or challenges. Please feel free to keep us informed; we are here to help.
-
-You can also reply to this message with the documents you currently have available, and we will advise you on the next steps.
+We also kindly request that you submit the required documents, or update us on your progress toward uploading them, by {deadline.strftime("%d %B %Y")}. This allows us to support you appropriately, especially if you are facing any delays or challenges. Please feel free to keep us informed; we are here to help!
 
 If you experience any difficulty uploading the documents or have any questions, simply reply to this message and our team will be happy to assist you.
 
@@ -125,70 +110,6 @@ Technological University of the Shannon
 
     st.subheader("Email Body (copy into Prospect)")
     st.text_area("", value=body, height=420)
-
-    # ---------------- Follow-Up Outputs ----------------
-    if enable_followups and (followup_1_selected or followup_2_selected):
-        st.divider()
-        st.subheader("Follow-Up Email Templates")
-
-        # ---- Follow-Up 1 ----
-        if followup_1_selected:
-            fu1_subject = f"Friendly Reminder – Documents for {programme.strip()} Application"
-
-            fu1_body = f"""Hello {forename.strip()},
-
-I hope you’re keeping well.
-
-I just wanted to gently follow up regarding the documents requested for your application to {programme.strip()} at Technological University of the Shannon (TUS).
-
-If you have already uploaded the documents, please feel free to ignore this message — thank you very much.
-
-If you’re still in the process of gathering any documents or if you’re experiencing any difficulty uploading them, please don’t hesitate to let us know. We’re more than happy to support you in any way we can.
-
-You can also reply to this message with the documents you currently have available, and we will advise you on the next steps.
-
-Whenever convenient, we kindly ask that you submit the required documents or keep us informed of your progress.
-
-Thank you again for your application, and we look forward to supporting you through the next steps.
-
-Kind regards,
-Admissions Team
-Technological University of the Shannon
-"""
-
-            st.markdown("### 📩 Follow-Up Email 1")
-            st.code(fu1_subject)
-            st.text_area("Follow-Up 1 Body", value=fu1_body, height=300)
-
-        # ---- Follow-Up 2 ----
-        if followup_2_selected:
-            fu2_subject = f"Checking In – Document Submission Support for {programme.strip()}"
-
-            fu2_body = f"""Hello {forename.strip()},
-
-I hope you are doing well.
-
-We just wanted to check in once more regarding the outstanding documents for your application to {programme.strip()} at Technological University of the Shannon (TUS).
-
-If you have already submitted the documents, thank you very much — we really appreciate it.
-
-If you are facing any challenges obtaining or uploading the documents, or if you require additional time, please feel free to let us know. Our team is happy to assist or discuss any flexibility where possible.
-
-You can also reply to this message with the documents you currently have available, and we will advise you on the next steps.
-
-Your application remains important to us, and we want to ensure you have the support you need throughout the process.
-
-Thank you again, and we look forward to hearing from you whenever convenient.
-
-Kind regards,
-Admissions Team
-Technological University of the Shannon
-"""
-
-            st.markdown("### 📩 Follow-Up Email 2")
-            st.code(fu2_subject)
-            st.text_area("Follow-Up 2 Body", value=fu2_body, height=300)
-
 st.caption(
     "Data Protection: This tool processes inputs in-memory only and does not retain or transmit personal information."
 )
