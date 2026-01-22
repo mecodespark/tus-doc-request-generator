@@ -29,7 +29,8 @@ DOCS = [
     "Backlog Certificate (issued by your awarding institution)",
     "Submission of your portfolio (if any)",
     "Your latest Curriculum Vitae or Resume",
-    "Submission of any professional certificates pursued for applied course"
+    "Submission of any professional certificates pursued for applied course",
+    "test"
 ]
 
 st.title("Document Request Email Generator")
